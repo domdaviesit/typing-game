@@ -5,6 +5,16 @@ window.addEventListener("load", init);
 // ---------------------------------------------------------
 // -------------------
 
+// Available Levels
+const levels = {
+  easy: 5,
+  medium: 3,
+  hard: 1
+};
+
+// To change level
+const currentLevel = levels.medium;
+
 // let so we can change, 5 for now. Then 4, 3, 2, 1, 0
 let time = 5;
 let score = 0;
@@ -51,7 +61,13 @@ const words = [
   "dragon"
 ];
 
-// Initialize Game
+// ---------------------------------------------------------
+// FUNCTIONS
+// ---------------------------------------------------------
+// -------------------
+// Init Game
+// -------------------
+
 function init() {
   // Show number of seconds in UI
   // seconds.innerHTML = currentLevel;
@@ -97,6 +113,7 @@ function matchWords() {
     return false;
   }
 }
+
 // Pick & show random word
 function showWord(words) {
   // Generate random array index

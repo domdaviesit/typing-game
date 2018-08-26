@@ -57,12 +57,31 @@ function init() {
   // seconds.innerHTML = currentLevel;
   // Load word from array
   showWord(words);
+  // Start matching on word input.  listen for any input then start
+  wordInput.addEventListener("input", startMatch);
   // Call countdown every second
   setInterval(countdown, 1000);
   // Check game status (50ms Very fast!)
   setInterval(checkStatus, 50);
 }
 
+// Start match
+function startMatch() {
+  if (matchWords()) {
+    // alert("MATCH!!!!!"); TEST!!
+  }
+}
+
+// Match currentWord to wordInput
+function matchWords() {
+  if (wordInput.value === currentWord.innerHTML) {
+    message.innerHTML = "Correct!!!";
+    return true;
+  } else {
+    message.innerHTML = "";
+    return false;
+  }
+}
 // Pick & show random word
 function showWord(words) {
   // Generate random array index

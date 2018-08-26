@@ -16,7 +16,8 @@ const levels = {
 const currentLevel = levels.medium;
 
 // let so we can change, 5 for now. Then 4, 3, 2, 1, 0
-let time = 5;
+// let time = 5; was hard coded to 5 - then couldn't change level's time
+let time = currentLevel;
 let score = 0;
 let isPlaying; // just initializing
 
@@ -70,7 +71,7 @@ const words = [
 
 function init() {
   // Show number of seconds in UI
-  // seconds.innerHTML = currentLevel;
+  seconds.innerHTML = currentLevel;
   // Load word from array
   showWord(words);
   // Start matching on word input.  listen for any input then start
@@ -87,7 +88,8 @@ function startMatch() {
     // alert("MATCH!!!!!"); TEST!!
     isPlaying = true;
     // 1 more second for page load
-    time = 6;
+    // time = 6; was hardcoded to 6
+    time = currentLevel + 1;
     showWord(words);
     // clear the input
     wordInput.value = "";

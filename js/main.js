@@ -69,6 +69,21 @@ function init() {
 function startMatch() {
   if (matchWords()) {
     // alert("MATCH!!!!!"); TEST!!
+    isPlaying = true;
+    // 1 more second for page load
+    time = 6;
+    showWord(words);
+    // clear the input
+    wordInput.value = "";
+    // increment the score
+    score++;
+  }
+
+  // If score is -1, display 0
+  if (score === -1) {
+    scoreDisplay.innerHTML = 0;
+  } else {
+    scoreDisplay.innerHTML = score;
   }
 }
 
@@ -108,6 +123,8 @@ function countdown() {
 function checkStatus() {
   if (!isPlaying && time === 0) {
     message.innerHTML = "Game Over!!!";
-    // score = -1;
+    // Resets the score after losing. Just start typing again.
+    // -1 so 1st word doesn't score
+    score = -1;
   }
 }
